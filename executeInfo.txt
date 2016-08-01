@@ -1,0 +1,45 @@
+环境要求：
+os:centos7
+soft list:
+redis
+sshpass
+expect
+easy_install
+pip
+python moudle list:
+redis apsschedule
+安装过程：
+redis:http://redis.io/download
+sshpass:
+wget http://sourceforge.net/projects/sshpass/files/sshpass/1.05/sshpass-1.05.tar.gz
+ tar zxvf sshpass-1.05.tar.gz
+
+$ cd sshpass-1.05
+
+$ ./configure --prefix=/opt/sshpass #指定安装目录
+
+$ make
+
+$ make install
+
+$ cp /opt/sshpass/bin/sshpass /usr/bin/
+
+[root@localhost sshpass-1.05]# sshpass -p "password" ssh -t -p 22 root@172.18.105.244 "last"
+expect:yum -y install expect
+easy_install:yum -y install easy_install
+pip:easy_install pip
+python redis:pip install redis
+python pip install APScheduler==2.0.0
+项目路径：
+/etc/remoteLogResource
+配置执行顺序：
+loginfo.txt -> InitLog.py -> python PullLogResource.py init ->python ScheLogResource.py&
+ 15:49:14
+  16:14:03
+
+
+
+
+
+yum install mysql-devel -y
+python manage.py migrate
